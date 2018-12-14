@@ -1,0 +1,89 @@
+$brand-primary: #bf0000;
+$white: #fff !default;
+$blue: #009ae9 !default;
+$black: #000 !default;
+$purple: #7d00be !default;
+$pink: #FF41BE !default;
+$red: #FF3939 !default;
+$orange: #f16a00 !default;
+$yellow: #fef3eb !default;
+$green:#069907 !default;
+$teal: #20c997 !default;
+$cyan:#00a0f0 !default;
+$gray-100: #f7f7f7 !default;
+$gray-200: #ebebebeb !default;
+$gray-300: #d1d1d1 !default;
+$gray-400: #b6b6b6 !default;
+$gray-500: #9c9c9c !default;
+$gray-600: #686868 !default;
+$gray-700: #4d4d4d !default;
+$gray-800: #333333 !default;
+$gray-900: #1a1a1a !default;
+$primary: $blue !default;
+$secondary: $gray-600 !default;
+$success: $green !default;
+$info: $blue !default;
+$warning: $orange !default;
+$danger: $red !default;
+$light: $gray-100 !default;
+$dark: $gray-800 !default;
+$theme-colors: () !default;
+// Fonts
+//
+// Font, line-height, and color for body text, headings, and more.
+// stylelint-disable value-keyword-case
+$font-family-sans-serif: -apple-system,
+BlinkMacSystemFont,
+"Segoe UI",
+Roboto,
+"Helvetica Neue",
+Arial,
+Noto Sans,
+sans-serif,
+"Apple Color Emoji",
+"Segoe UI Emoji",
+"Segoe UI Symbol",
+"Noto Color Emoji" !default;
+$font-family-monospace: SFMono-Regular,
+Menlo,
+Monaco,
+Consolas,
+"Liberation Mono",
+"Courier New",
+monospace !default;
+$font-family-base: $font-family-sans-serif !default;
+// Set a specific jump point for requesting color jumps
+$theme-color-interval: 8% !default;
+$theme-colors: map-merge( ( "primary": $primary, "secondary": $secondary, "success": $success, "info": $info, "warning": $warning, "danger": $danger, "light": $light, "dark": $dark), $theme-colors);
+$colors: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$colors: map-merge( ( "blue": $blue, "purple": $purple, "pink": $pink, "red": $red, "orange": $orange, "yellow": $yellow, "green": $green, "teal": $teal, "cyan": $cyan, "white": $white, "gray": $gray-600, "gray-dark": $gray-800), $colors);
+$body-bg: $white !default;
+$spacer: 1rem !default;
+$border-width: 1px !default;
+$border-color: $gray-300 !default;
+$text-muted: $gray-600 !default;
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+$grid-breakpoints: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$grid-breakpoints: map-merge( ( xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px), $grid-breakpoints);
+// Tables
+//
+:root {
+  // Custom variable values only support SassScript inside `#{}`.
+  @each $color,
+  $value in $colors {
+    --#{$color}: #{$value};
+  }
+  @each $color,
+  $value in $theme-colors {
+    --#{$color}: #{$value};
+  }
+  @each $bp,
+  $value in $grid-breakpoints {
+    --breakpoint-#{$bp}: #{$value};
+  } // Use `inspect` for lists so that quoted items keep the quotes.
+}
