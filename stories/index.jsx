@@ -17,7 +17,7 @@ import CardImg from '../src/CardImg';
 import CardBody from '../src/CardBody';
 import CardText from '../src/CardText';
 import CardLink from '../src/CardLink';
-import 'rex-core/dist/css/rex-core.css';
+import 'rex-core';
 
 const stories = storiesOf('Card', module);
 // stories.addDecorator(checkA11y);
